@@ -95,7 +95,7 @@ img {
   padding: 14px 0 10px;
 }
 
-/* 上段：ロゴ・問い合わせ・（スマホ時）メニュー */
+/* 上段：ロゴ・問い合わせ・メニュー */
 .header-inner {
   display: flex;
   justify-content: space-between;
@@ -139,6 +139,7 @@ img {
   gap: 12px;
   margin-left: auto; /* 左の .site-brand と両端に分かれる */
 }
+
 /* お問い合わせ */
 .header-contact {
   text-align: right;
@@ -180,6 +181,12 @@ img {
   border: 1px solid rgba(15, 95, 140, 0.3);
   background: transparent;
   cursor: pointer;
+}
+
+.menu-toggle-bars {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .menu-toggle-bar {
@@ -947,56 +954,86 @@ img {
     border-radius: 0;
   }
 
-  .header-inner,
-  .footer-inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-
+  /* ヘッダー：2×2レイアウトに近い形 */
   .header-inner {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 10px 14px 8px; /* 上下の余白を少し減らす */
-    gap: 6px; /* 要素間のすき間も少しだけ詰める */
+    padding: 10px 14px 8px;
+    display: grid;
+    grid-template-columns: 1fr auto; /* 左：ロゴ・タグライン / 右：問い合わせ＋メニュー */
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    row-gap: 6px;
+    align-items: center;
   }
 
+  /* 左側：ロゴ＋タグライン（2行分を占有） */
   .site-brand {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
   }
+
   .site-logo img {
     max-height: 44px; /* ロゴを少し小さくして高さを圧縮 */
   }
 
+  .site-tagline {
+    font-size: 0.85rem;
+  }
+
+  /* 右側：上に問い合わせ、下にメニュー */
   .header-right {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
     margin-left: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
   }
+
   .header-contact {
-    font-size: 0.8rem;
-    text-align: left; /* スマホでは左寄せのほうが自然 */
+    font-size: 0.78rem;
+    text-align: right;
     margin-top: 0;
   }
+
   .header-contact-label {
-    margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
+
   .header-contact-mail {
     margin: 0;
   }
 
-  /* ▼ ハンバーガー：右上に寄せる＆サイズ感調整 */
+  /* ▼ ハンバーガー：右下に配置、サイズ調整 */
   .menu-toggle {
     display: inline-flex; /* スマホのときだけ表示 */
-    margin-top: 0;
-    padding: 6px 10px;
-    border-radius: 999px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #8aa1bd;
+    background: #ffffff;
+    margin-top: 2px;
+  }
+
+  .menu-toggle-bar {
+    width: 16px;
+    background-color: #3a4f6a;
+  }
+
+  .menu-toggle-label {
+    font-size: 0.8rem; /* メニュー文字を少し小さく */
+    color: #3a4f6a;
+  }
+
+  /* 開閉アニメーション（位置微調整） */
+  .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
   }
 
   /* ▼ モバイル時、ナビはデフォルト非表示 */
@@ -1134,85 +1171,5 @@ img {
 
   .side-box-situations {
     order: -1;
-  }
-}
-/* =========================================================
-  スマホ版ヘッダー最適化（メニュー文字小さく・並び調整）
-  ========================================================= */
-
-@media (max-width: 768px) {
-  /* ヘッダー全体の上下余白調整 */
-  .header-inner {
-    padding: 10px 14px;
-    display: block;
-  }
-
-  /* ロゴはブロック扱いで左寄せ */
-  .header-logo {
-    margin-bottom: 6px;
-  }
-
-  /* 「お問い合わせ + メール」とメニューを横並びに */
-  .header-right {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 4px 0 0;
-  }
-
-  /* お問い合わせ & メールの全体ブロック */
-  .header-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 13px; /* 少し小さめに */
-  }
-
-  /* メニューのボタン（アイコン＋文字） */
-  .menu-toggle {
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 1px solid #8aa1bd;
-    background: #fff;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /* アイコンの線 */
-  .menu-toggle-bar {
-    width: 18px;
-    height: 2px;
-    background: #3a4f6a;
-    transition: 0.3s;
-  }
-
-  /* メニュー文字を少し小さく */
-  .menu-toggle-label {
-    font-size: 13px;
-    color: #3a4f6a;
-  }
-
-  /* ----------
-    メニュー開閉アニメーション
-    ---------- */
-  .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
-  }
-  .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
-  }
-
-  /* ----------
-    ナビ表示制御
-    ---------- */
-  .global-nav {
-    display: none;
-  }
-  .global-nav.is-open {
-    display: block;
   }
 }
