@@ -137,9 +137,8 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: auto; /* 左のロゴ群と右端の問い合わせを両端に配置 */
+  margin-left: auto; /* 左の .site-brand と両端に分かれる */
 }
-
 /* お問い合わせ */
 .header-contact {
   text-align: right;
@@ -971,13 +970,14 @@ img {
   .site-logo img {
     max-height: 44px; /* ロゴを少し小さくして高さを圧縮 */
   }
+
   .header-right {
     margin-left: 0;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 2px;
   }
-
   .header-contact {
     font-size: 0.8rem;
     text-align: left; /* スマホでは左寄せのほうが自然 */

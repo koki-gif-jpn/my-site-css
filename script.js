@@ -2,11 +2,11 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   /* =========================
-     1. FAQ アコーディオン（改良版）
-     - クリックした項目だけ開く
-     - 他は自動で閉じる
-     - aria 属性を付けてスクリーンリーダー対応
-  ========================== */
+   * 1. FAQ アコーディオン（改良版）
+   *    - クリックした項目だけ開く
+   *    - 他は自動で閉じる
+   *    - aria 属性でスクリーンリーダー対応
+   * ========================= */
   const faqItems = document.querySelectorAll(".faq-item");
 
   faqItems.forEach(function (item) {
@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 初期状態：全部閉じる
     btn.setAttribute("aria-expanded", "false");
     answer.setAttribute("aria-hidden", "true");
+    answer.style.display = "none";
 
     btn.addEventListener("click", function () {
       const isOpen = btn.classList.contains("is-open");
@@ -40,23 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
         answer.style.display = "block";
         answer.setAttribute("aria-hidden", "false");
       }
-      // もし isOpen だった場合は「全部閉じた状態」で終了
+      // isOpen だった場合は「全部閉じた状態」で終了
     });
   });
 
   /* =========================
-     2. スムーススクロール（ちょい堅牢版）
-     - href が "#○○" のものだけ対象
-     - href="#" はそのまま（何もしない）
-     - ちょっとだけ上に余白を残してスクロール
-  ========================== */
+   * 2. スムーススクロール
+   *    - href が "#○○" のものだけ対象
+   *    - href="#" はデフォルト動作
+   * ========================= */
   const anchorLinks = document.querySelectorAll('a[href^="#"]');
-
   anchorLinks.forEach(function (link) {
     link.addEventListener("click", function (e) {
       const href = link.getAttribute("href");
-
-      // href が「#」だけなら、ブラウザ標準の動きのままにする
       if (!href || href === "#") return;
 
       const target = document.querySelector(href);
@@ -75,44 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* =========================
-     3. スマホメニュー開閉（将来のハンバーガー用）
-     - .js-menu-toggle ボタンと
-       .global-nav のクラス連動
-  ========================== */
+   * 3. スマホメニュー開閉
+   *    - .js-menu-toggle と #global-nav のクラス連動
+   * ========================= */
   const menuToggle = document.querySelector(".js-menu-toggle");
-  const globalNav = document.querySelector(".global-nav");
+  const globalNav = document.getElementById("global-nav");
 
   if (menuToggle && globalNav) {
     menuToggle.addEventListener("click", function () {
-      globalNav.classList.toggle("is-open");
-      menuToggle.classList.toggle("is-open");
-    });
-  }
-});
-// script.js
-
-document.addEventListener("DOMContentLoaded", function () {
-  var menuToggle = document.querySelector(".js-menu-toggle");
-  var globalNav = document.getElementById("global-nav");
-
-  // ▼ ハンバーガーメニューの開閉
-  if (menuToggle && globalNav) {
-    menuToggle.addEventListener("click", function () {
-      var isOpen = menuToggle.classList.toggle("is-open");
+      const isOpen = menuToggle.classList.toggle("is-open");
       globalNav.classList.toggle("is-open", isOpen);
       menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   }
-
-  // ▼ FAQ（もし使う場合）：質問クリックで開閉
-  var faqQuestions = document.querySelectorAll(".faq-question");
-  faqQuestions.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var answer = btn.nextElementSibling;
-      var isOpen = btn.classList.toggle("is-open");
-      if (answer) {
-        answer.style.display = isOpen ? "block" : "none";
-      }
-    });
-  });
 });
