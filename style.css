@@ -1013,33 +1013,28 @@ img {
 
   /* ▼ ハンバーガー：右下に配置、少し小さめ＆そろった見た目に */
   .menu-toggle {
-    display: inline-flex; /* スマホのときだけ表示 */
-    padding: 6px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
     border-radius: 999px;
     border: 1px solid #8aa1bd;
     background: #ffffff;
-    margin-top: 0;
-    min-width: 110px; /* 文字がブレないように幅を少し確保 */
-    justify-content: flex-end;
-    align-items: center;
+    margin-top: 2px;
     gap: 6px;
   }
-
   .menu-toggle-bars {
     display: inline-flex;
     flex-direction: column;
-    gap: 3px;
-    margin-right: 2px;
+    gap: 3px; /* 隙間を少しせまくする */
   }
-
   .menu-toggle-bar {
     width: 16px;
     height: 2px;
     background-color: #3a4f6a;
     border-radius: 999px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform-origin: center; /* 回転の中心を真ん中に */
   }
-
   .menu-toggle-label {
     font-size: 0.8rem;
     color: #3a4f6a;
@@ -1049,7 +1044,6 @@ img {
   .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
     transform: translateY(3px) rotate(45deg);
   }
-
   .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
     opacity: 0;
   }
@@ -1057,7 +1051,6 @@ img {
   .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
     transform: translateY(-3px) rotate(-45deg);
   }
-
   /* --- 以下は今のCSSと同じでOK（ナビ表示切替など） --- */
 
   .global-nav {
