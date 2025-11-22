@@ -1031,16 +1031,18 @@ img {
     display: flex;
     justify-content: center;
   }
-  .menu-toggle-bar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 16px;
-    height: 2px;
-    background-color: #3a4f6a;
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 18px;
+    margin-top: -2px; /* ← ここを -2px にして縦位置をほんの少し上へ */
+    margin-right: 4px;
     border-radius: 999px;
-    transform: translate(-50%, -50%);
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    border: 1px solid #8aa1bd;
+    background: #ffffff;
+    min-height: 40px;
+    gap: 8px;
   }
   .menu-toggle:not(.is-open) .menu-toggle-bar:nth-child(1) {
     transform: translate(-50%, -50%) translateY(-4px);
