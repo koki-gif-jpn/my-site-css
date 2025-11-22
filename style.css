@@ -1208,5 +1208,8 @@ img {
   }
 }
 @media (min-width: 821px) {
-  /* ここにPC専用の調整を追加していく */
+  .page {
+    max-width: 1120px; /* 1100〜1200 の中で好みだけど、まずは 1120px くらいが扱いやすい */
+    margin: 0 auto;
+  }
 }
