@@ -1135,4 +1135,84 @@ img {
   .side-box-situations {
     order: -1;
   }
+  /* =========================================================
+   スマホ版ヘッダー最適化（メニュー文字小さく・並び調整）
+   ========================================================= */
+
+  @media (max-width: 768px) {
+    /* ヘッダー全体の上下余白調整 */
+    .header-inner {
+      padding: 10px 14px;
+      display: block;
+    }
+
+    /* ロゴはブロック扱いで左寄せ */
+    .header-logo {
+      margin-bottom: 6px;
+    }
+
+    /* 「お問い合わせ + メール」とメニューを横並びに */
+    .header-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 4px 0 0;
+    }
+
+    /* お問い合わせ & メールの全体ブロック */
+    .header-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 13px; /* 少し小さめに */
+    }
+
+    /* メニューのボタン（アイコン＋文字） */
+    .menu-toggle {
+      padding: 8px 14px;
+      border-radius: 20px;
+      border: 1px solid #8aa1bd;
+      background: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* アイコンの線 */
+    .menu-toggle-bar {
+      width: 18px;
+      height: 2px;
+      background: #3a4f6a;
+      transition: 0.3s;
+    }
+
+    /* メニュー文字を少し小さく */
+    .menu-toggle-label {
+      font-size: 13px;
+      color: #3a4f6a;
+    }
+
+    /* ----------
+     メニュー開閉アニメーション
+     ---------- */
+    .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+    .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+
+    /* ----------
+     ナビ表示制御
+     ---------- */
+    .global-nav {
+      display: none;
+    }
+    .global-nav.is-open {
+      display: block;
+    }
+  }
 }
