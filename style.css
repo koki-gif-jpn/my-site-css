@@ -132,7 +132,15 @@ img {
   line-height: 1.4;
 }
 
-/* 右側：お問い合わせ */
+/* 右側：お問い合わせ ＋ ハンバーガー */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto; /* 左のロゴ群と右端の問い合わせを両端に配置 */
+}
+
+/* お問い合わせ */
 .header-contact {
   text-align: right;
   font-size: 0.85rem;
@@ -156,13 +164,14 @@ img {
   color: #2f3a4a;
   text-decoration: none;
 }
+
 .header-contact-mail a:hover {
   text-decoration: underline;
 }
 
-/* ハンバーガーメニュー（PCでは非表示） */
+/* ハンバーガーメニュー（PCでは非表示：共通スタイルのみ定義） */
 .menu-toggle {
-  display: none; /* ← 基本は消しておく。スマホでだけ表示 */
+  display: none; /* 基本は非表示。スマホでだけ表示する */
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -172,13 +181,6 @@ img {
   border: 1px solid rgba(15, 95, 140, 0.3);
   background: transparent;
   cursor: pointer;
-}
-
-.menu-toggle-bars {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 3px;
 }
 
 .menu-toggle-bar {
@@ -199,9 +201,11 @@ img {
 .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
 }
+
 .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
@@ -967,11 +971,17 @@ img {
   .site-logo img {
     max-height: 44px; /* ロゴを少し小さくして高さを圧縮 */
   }
+  .header-right {
+    margin-left: 0;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2px;
+  }
 
   .header-contact {
     font-size: 0.8rem;
     text-align: left; /* スマホでは左寄せのほうが自然 */
-    margin-top: 2px;
+    margin-top: 0;
   }
   .header-contact-label {
     margin: 0;
@@ -984,8 +994,7 @@ img {
   /* ▼ ハンバーガー：右上に寄せる＆サイズ感調整 */
   .menu-toggle {
     display: inline-flex; /* スマホのときだけ表示 */
-    align-self: flex-end; /* 右端に寄せる */
-    margin-top: 2px;
+    margin-top: 0;
     padding: 6px 10px;
     border-radius: 999px;
   }
