@@ -1016,40 +1016,58 @@ img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 10px;
-    border-radius: 999px;
+    padding: 8px 14px; /* ← 少し広げて押しやすく */
+    border-radius: 22px;
     border: 1px solid #8aa1bd;
     background: #ffffff;
-    margin-top: 2px;
-    gap: 6px;
+    margin-top: 4px; /* ← 上に少し余白 */
+    margin-right: 2px; /* ← 右端から少しだけ内側に */
+    gap: 8px; /* ← アイコンと文字の距離を調整 */
+    min-height: 38px; /* ← 指で押しやすい高さ */
   }
   .menu-toggle-bars {
-    display: inline-flex;
-    flex-direction: column;
-    gap: 3px; /* 隙間を少しせまくする */
+    position: relative;
+    width: 18px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
   }
   .menu-toggle-bar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 16px;
     height: 2px;
     background-color: #3a4f6a;
     border-radius: 999px;
-    transform-origin: center; /* 回転の中心を真ん中に */
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease, opacity 0.2s ease;
   }
-  .menu-toggle-label {
-    font-size: 0.8rem;
-    color: #3a4f6a;
+  .menu-toggle:not(.is-open) .menu-toggle-bar:nth-child(1) {
+    transform: translate(-50%, -50%) translateY(-4px);
+  }
+  .menu-toggle:not(.is-open) .menu-toggle-bar:nth-child(2) {
+    transform: translate(-50%, -50%);
+  }
+  .menu-toggle:not(.is-open) .menu-toggle-bar:nth-child(3) {
+    transform: translate(-50%, -50%) translateY(4px);
   }
 
-  /* 開閉アニメーション（位置を少しだけ調整） */
+  /* ✕ に変わったとき */
   .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
-    transform: translateY(3px) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
   .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
     opacity: 0;
   }
-
   .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
-    transform: translateY(-3px) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  .menu-toggle-label {
+    font-size: 0.82rem; /* ← 少しだけ読みやすく */
+    color: #3a4f6a;
+    margin-left: 2px; /* ← 微調整で中央寄りに */
   }
   /* --- 以下は今のCSSと同じでOK（ナビ表示切替など） --- */
 
