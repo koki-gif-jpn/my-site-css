@@ -1206,15 +1206,8 @@ img {
 
 @media (min-width: 821px) {
   .page {
-    max-width: 1200px; /* 1100〜1200 の中で好みだけど、まずは 1120px くらいが扱いやすい */
-    margin: 0 auto;
-    padding: 0 20px; /* 既存の余白感を維持 */
-  }
-}
-@media (min-width: 821px) {
-  .page {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* 既存のやさしい余白感を維持 */
+    padding: 0 20px; /* 既存の余白感を維持 */
   }
 }
