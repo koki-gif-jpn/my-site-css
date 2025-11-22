@@ -954,33 +954,34 @@ img {
     border-radius: 0;
   }
 
-  /* ヘッダー：2×2レイアウトに近い形 */
+  /* ヘッダー：コンパクトな2×2レイアウト */
   .header-inner {
-    padding: 10px 14px 8px;
+    padding: 6px 12px 4px;
     display: grid;
-    grid-template-columns: 1fr auto; /* 左：ロゴ・タグライン / 右：問い合わせ＋メニュー */
+    grid-template-columns: minmax(0, 1.4fr) auto; /* 左広め・右は問い合わせ＋メニュー */
     grid-template-rows: auto auto;
-    column-gap: 10px;
-    row-gap: 6px;
+    column-gap: 8px;
+    row-gap: 4px;
     align-items: center;
   }
 
-  /* 左側：ロゴ＋タグライン（2行分を占有） */
+  /* 左側：ロゴ＋タグライン（縦並び） */
   .site-brand {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 3px;
   }
 
   .site-logo img {
-    max-height: 44px; /* ロゴを少し小さくして高さを圧縮 */
+    max-height: 40px; /* ちょっとだけ小さくして高さを圧縮 */
   }
 
   .site-tagline {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
 
   /* 右側：上に問い合わせ、下にメニュー */
@@ -991,52 +992,74 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 4px;
+    gap: 6px;
   }
 
   .header-contact {
     font-size: 0.78rem;
     text-align: right;
     margin-top: 0;
+    line-height: 1.4;
   }
 
   .header-contact-label {
     font-size: 0.72rem;
+    letter-spacing: 0.08em;
   }
 
   .header-contact-mail {
     margin: 0;
   }
 
-  /* ▼ ハンバーガー：右下に配置、サイズ調整 */
+  /* ▼ ハンバーガー：右下に配置、少し小さめ＆そろった見た目に */
   .menu-toggle {
     display: inline-flex; /* スマホのときだけ表示 */
-    padding: 6px 12px;
-    border-radius: 20px;
+    padding: 6px 10px;
+    border-radius: 999px;
     border: 1px solid #8aa1bd;
     background: #ffffff;
-    margin-top: 2px;
+    margin-top: 0;
+    min-width: 110px; /* 文字がブレないように幅を少し確保 */
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .menu-toggle-bars {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: 2px;
   }
 
   .menu-toggle-bar {
     width: 16px;
+    height: 2px;
     background-color: #3a4f6a;
+    border-radius: 999px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
   .menu-toggle-label {
-    font-size: 0.8rem; /* メニュー文字を少し小さく */
+    font-size: 0.8rem;
     color: #3a4f6a;
   }
 
-  /* 開閉アニメーション（位置微調整） */
+  /* 開閉アニメーション（位置を少しだけ調整） */
   .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
-    transform: translateY(4px) rotate(45deg);
-  }
-  .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
-    transform: translateY(-4px) rotate(-45deg);
+    transform: translateY(3px) rotate(45deg);
   }
 
-  /* ▼ モバイル時、ナビはデフォルト非表示 */
+  .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  /* --- 以下は今のCSSと同じでOK（ナビ表示切替など） --- */
+
   .global-nav {
     display: none;
   }
@@ -1069,6 +1092,8 @@ img {
     min-width: 100%;
     flex: 1 1 auto;
   }
+
+  /* （この下のカードやヒーローなどのスマホ用CSSはそのままでOK） */
 
   /* カードは1カラム表示 */
   .card-grid {
