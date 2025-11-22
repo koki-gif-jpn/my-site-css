@@ -12,54 +12,52 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="header-inner">
-        <div class="site-brand">
-          <a href="index.html" class="site-logo">
-            <img src="images/logo-header-main.png" alt="SHIDARA office ロゴ" />
-          </a>
-          <p class="site-tagline">組織・チームの成長促進</p>
+        <div class="header-inner">
+          <!-- 左：ロゴ ＋ タグライン -->
+          <div class="site-brand">
+            <a href="index.html" class="site-logo">
+              <img src="images/logo-header-main.png" alt="SHIDARA office ロゴ">
+            </a>
+            <p class="site-tagline">組織・チームの成長促進</p>
+          </div>
+
+          <!-- 右：お問い合わせ ＋ ハンバーガー（スマホのみ表示） -->
+          <div class="header-right">
+            <div class="header-contact">
+              <p class="header-contact-label">お問い合わせ</p>
+              <p class="header-contact-mail">
+                <a href="mailto:info@example.com">info@example.com</a>
+              </p>
+            </div>
+
+            <!-- ▼ ハンバーガーボタン（スマホのみ表示） -->
+            <button
+              class="menu-toggle js-menu-toggle"
+              type="button"
+              aria-controls="global-nav"
+              aria-expanded="false"
+            >
+              <span class="menu-toggle-bar"></span>
+              <span class="menu-toggle-bar"></span>
+              <span class="menu-toggle-bar"></span>
+              <span class="menu-toggle-label">メニュー</span>
+            </button>
+          </div>
         </div>
 
-        <div class="header-contact">
-          <p class="header-contact-label">お問い合わせ</p>
-          <p class="header-contact-mail">
-            <a href="mailto:info@example.com">info@example.com</a>
-          </p>
-        </div>
-
-        <!-- ▼ スマホ用ハンバーガーメニュー -->
-        <button
-          class="menu-toggle js-menu-toggle"
-          type="button"
-          aria-controls="global-nav"
-          aria-expanded="false"
-        >
-          <span class="menu-toggle-bars">
-            <span class="menu-toggle-bar"></span>
-            <span class="menu-toggle-bar"></span>
-            <span class="menu-toggle-bar"></span>
-          </span>
-          <span class="menu-toggle-label">メニュー</span>
-        </button>
-        <!-- ▲ スマホ用ハンバーガーメニュー -->
-      </div>
-
-      <nav
-        class="global-nav"
-        id="global-nav"
-        aria-label="グローバルナビゲーション"
-      >
-        <ul>
-          <li class="current"><a href="index.html">ホーム</a></li>
-          <li><a href="about.html">私たちについて</a></li>
-          <li><a href="programs.html">プログラム一覧</a></li>
-          <li><a href="flow.html">実施までの流れ</a></li>
-          <li><a href="faq.html">よくある質問</a></li>
-          <li><a href="contact.html">お問い合わせ</a></li>
-          <li><a href="theory.html">大切にしている考え方</a></li>
-        </ul>
-      </nav>
-    </header>
+        <!-- ▼ グローバルナビ -->
+        <nav class="global-nav" id="global-nav">
+          <ul>
+            <li class="current"><a href="index.html">ホーム</a></li>
+            <li><a href="about.html">私たちについて</a></li>
+            <li><a href="programs.html">プログラム一覧</a></li>
+            <li><a href="flow.html">実施までの流れ</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+            <li><a href="theory.html">大切にしている考え方</a></li>
+          </ul>
+        </nav>
+      </header>
 
       <!-- =========================
            ヒーローエリア（トップ）
