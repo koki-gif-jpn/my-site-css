@@ -1199,18 +1199,15 @@ img {
     gap: 16px;
   }
 
-  .sidebar .side-box {
-    margin-bottom: 0;
-  }
-
   .side-box-situations {
     order: -1;
   }
-}
+} /* ← @media (max-width: 820px) をここで閉じる */
 
 @media (min-width: 821px) {
   .page {
-    max-width: 1120px; /* 1100〜1200 の中で好みだけど、まずは 1120px くらいが扱いやすい */
+    max-width: 1200px; /* 1100〜1200 の中で好みだけど、まずは 1120px くらいが扱いやすい */
     margin: 0 auto;
+    padding: 0 20px; /* 既存の余白感を維持 */
   }
 }
