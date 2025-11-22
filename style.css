@@ -992,7 +992,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px;
+    gap: 6px; /* ← お問い合わせ と ボタンの間を少し広げる */
   }
 
   .header-contact {
@@ -1013,17 +1013,16 @@ img {
 
   /* ▼ ハンバーガー：右下に配置、少し小さめ＆そろった見た目に */
   .menu-toggle {
-    display: inline-flex;
+    display: inline-flex; /* スマホのときだけ表示 */
     align-items: center;
     justify-content: center;
-    padding: 8px 14px; /* ← 少し広げて押しやすく */
-    border-radius: 22px;
+    padding: 8px 18px; /* クリック領域を少し広げる */
+    margin-top: 0; /* 上の余白を詰める */
+    margin-right: 4px; /* 右端からちょっと内側に寄せる */
+    border-radius: 999px;
     border: 1px solid #8aa1bd;
     background: #ffffff;
-    margin-top: 4px; /* ← 上に少し余白 */
-    margin-right: 2px; /* ← 右端から少しだけ内側に */
-    gap: 8px; /* ← アイコンと文字の距離を調整 */
-    min-height: 38px; /* ← 指で押しやすい高さ */
+    min-height: 40px; /* 指で押しやすい高さを確保 */
   }
   .menu-toggle-bars {
     position: relative;
