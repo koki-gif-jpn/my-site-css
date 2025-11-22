@@ -1087,107 +1087,106 @@ img {
   }
 
   /* （この下のカードやヒーローなどのスマホ用CSSはそのままでOK） */
+}
+/* カードは1カラム表示 */
+.card-grid {
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
 
-  /* カードは1カラム表示 */
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
+.card {
+  padding: 14px 14px 12px;
+}
 
-  .card {
-    padding: 14px 14px 12px;
-  }
+.card img {
+  height: 180px;
+}
 
-  .card img {
-    height: 180px;
-  }
+.btn {
+  width: 100%;
+}
 
-  .btn {
-    width: 100%;
-  }
+.page-header {
+  margin: 0 12px 20px;
+  padding: 14px 12px 18px;
+}
 
-  .page-header {
-    margin: 0 12px 20px;
-    padding: 14px 12px 18px;
-  }
+.page-title {
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
 
-  .page-title {
-    font-size: 1.15rem;
-    line-height: 1.5;
-  }
+.page-subtitle {
+  font-size: 0.9rem;
+}
 
-  .page-subtitle {
-    font-size: 0.9rem;
-  }
+.side-box {
+  padding: 10px 10px 12px;
+}
 
-  .side-box {
-    padding: 10px 10px 12px;
-  }
+.flowchart-step {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+}
 
-  .flowchart-step {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px 12px;
-  }
+/* ヒーロー：スマホ時の調整 */
+.hero-bg {
+  background-position: center center;
+}
 
-  /* ヒーロー：スマホ時の調整 */
-  .hero-bg {
-    background-position: center center;
-  }
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 20, 36, 0.85),
+    rgba(10, 20, 36, 0.65)
+  );
+}
 
-  .hero-overlay {
-    background: linear-gradient(
-      to bottom,
-      rgba(10, 20, 36, 0.85),
-      rgba(10, 20, 36, 0.65)
-    );
-  }
+.hero-full {
+  min-height: 420px;
+}
 
-  .hero-full {
-    min-height: 420px;
-  }
+.hero-container {
+  padding: 28px 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-  .hero-container {
-    padding: 28px 16px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+.hero-content {
+  max-width: 100%;
+  padding: 18px 16px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
-  .hero-content {
-    max-width: 100%;
-    padding: 18px 16px;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
+.hero-title {
+  font-size: 1.4rem;
+}
 
-  .hero-title {
-    font-size: 1.4rem;
-  }
+.hero-text {
+  font-size: 0.95rem;
+}
 
-  .hero-text {
-    font-size: 0.95rem;
-  }
+.theory-title {
+  font-size: 1.05rem;
+}
 
-  .theory-title {
-    font-size: 1.05rem;
-  }
+/* フッターナビ：スマホでは1列 */
+.footer-nav ul {
+  grid-template-columns: 1fr;
+}
 
-  /* フッターナビ：スマホでは1列 */
-  .footer-nav ul {
-    grid-template-columns: 1fr;
-  }
+/* サイドバーの順番調整（ご相談のタイミングを上に） */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-  /* サイドバーの順番調整（ご相談のタイミングを上に） */
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
+.sidebar .side-box {
+  margin-bottom: 0;
+}
 
-  .sidebar .side-box {
-    margin-bottom: 0;
-  }
-
-  .side-box-situations {
-    order: -1;
-  }
+.side-box-situations {
+  order: -1;
 }
