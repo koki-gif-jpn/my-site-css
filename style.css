@@ -1211,3 +1211,10 @@ img {
     padding: 0 20px; /* 既存の余白感を維持 */
   }
 }
+@media (min-width: 821px) {
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* 既存のやさしい余白感を維持 */
+  }
+}
