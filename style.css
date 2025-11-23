@@ -1208,6 +1208,44 @@ img {
   .page {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* 既存の余白感を維持 */
+    padding: 0 20px;
+  }
+
+  /* PCのメイン＋サイドバーのバランス調整（黄金比寄り） */
+  .layout-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px; /* 少し距離を空けて呼吸感UP */
+  }
+
+  .sidebar {
+    flex: 0 0 30%;
+    max-width: 30%;
+    font-size: 0.95rem; /* 小さすぎず読みやすい絶妙なサイズ */
+  }
+  .side-box {
+    padding: 14px 14px 16px;
+  }
+
+  .sidebar .side-box {
+    margin-bottom: 20px; /* 心地よく読み進められる距離 */
+  }
+  .side-box .side-title {
+    font-size: 1rem; /* やさしく小さめに */
+    font-weight: 600; /* 強すぎず弱すぎない */
+    line-height: 1.4;
+    margin-bottom: 6px; /* 下の空間を控えめに */
+  }
+
+  .side-box ul li {
+    line-height: 1.5;
+  }
+  .side-menu li a {
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+  .main-content {
+    flex: 0 0 70%;
+    max-width: 70%;
   }
 }
