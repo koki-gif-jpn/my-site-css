@@ -881,84 +881,82 @@ img {
 .site-footer {
   background: #f5f7fb; /* ほんの少しだけ明るくして“薄く” */
   color: #223;
-  padding: 26px 20px 20px; /* 上下の厚みを少し減らす */
-  margin-top: 60px;
-  border-top: 1px solid #d8e2ee; /* 枠線も少しだけ軽く */
-
-  /* ロゴを背景としてうっすら配置（パスは実際の位置に合わせて調整） */
-  background-image: url(images/logo-wave.png);
-  background-repeat: no-repeat;
-  background-position: center 4px;
-  background-size: 220px auto;
+  padding: 20px 20px 10px; /* 上下の厚みをさらに少しだけ薄く */
+  border-top: 1px solid #d8e2ee; /* 枠線も軽めに */
 }
 
+/* 全体レイアウト */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* 全体の間隔も少しタイトに */
+  gap: 18px; /* 間の余白も少し詰める */
 }
 
 /* ---------- ブランド部分 ---------- */
 .footer-brand {
   text-align: center;
 }
-
-.footer-name {
-  font-size: 1.05rem; /* ほんの少し小さくして軽く */
-  font-weight: 500; /* 太さも少しだけ細く */
-  letter-spacing: 0.04em;
-  color: #1a2a3a;
+.footer-logo {
+  max-width: 320px;
+  height: auto;
+  opacity: 0.95; /* ほんのり落ち着かせるなら */
 }
 
-.footer-tagline {
-  margin-top: 2px;
-  font-size: 0.85rem;
-  color: #556;
+/* ---------- ナビ＋メール ---------- */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px 28px; /* ナビとメールの間の余白 */
+  color: #3c4c5c;
+  opacity: 0.85;
 }
 
-.footer-email {
-  margin-top: 4px;
-  font-size: 0.85rem;
-  color: #2a3a4a;
-}
-
-/* ---------- ナビ ---------- */
 .footer-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px 22px; /* リンク間隔も少しだけ詰める */
+  gap: 12px 24px;
   justify-content: center;
+  opacity: 0.75;
 }
 
 .footer-nav a {
   text-decoration: none;
   color: #2a3a4a;
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
   transition: opacity 0.2s;
 }
 
 .footer-nav a:hover {
-  opacity: 0.7;
+  opacity: 1;
+}
+
+/* メールアドレス（PCではナビ列の右側） */
+.footer-email {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #2a3a4a;
+  opacity: 0.75;
 }
 
 /* ---------- 下部コピーライト ---------- */
 .footer-bottom {
   text-align: center;
-  margin-top: 18px;
-  padding-top: 10px; /* 上の余白も薄めに */
+  margin-top: 8px;
+  padding-top: 6px;
   border-top: 1px solid #d5e0ea;
 }
 
 .footer-bottom small {
-  font-size: 0.75rem;
-  color: #778;
+  font-size: 0.8rem;
+  color: #667;
 }
 
 /* --------------------------------
@@ -1227,13 +1225,11 @@ img {
 
   /* ===== フッター（スマホ） ===== */
   .site-footer {
-    padding: 22px 16px 18px;
-    background-position: center 6px;
-    background-size: 180px auto;
+    padding: 16px 16px 10px; /* 全体を少しだけコンパクトに */
   }
 
   .footer-container {
-    gap: 18px;
+    gap: 14px; /* ロゴとナビの間を少し詰める */
   }
 
   .footer-name {
@@ -1241,18 +1237,27 @@ img {
   }
 
   .footer-nav ul {
-    gap: 10px 18px;
+    justify-content: center;
+    gap: 8px 18px; /* 行間ちょい広め、横は少しだけ */
   }
 
-  .footer-nav a {
-    font-size: 0.8rem;
+  .footer-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px; /* ナビとメールの距離 */
   }
-
+  .footer-email {
+    margin-top: 2px;
+    font-size: 0.85rem;
+    line-height: 1.6; /* 行間をゆるめて読みやすく */
+    text-align: center;
+    opacity: 0.75;
+  }
   .footer-bottom {
-    margin-top: 14px;
-    padding-top: 8px;
+    margin-top: 10px;
+    padding-top: 6px; /* コピーライト周りの厚みを薄く */
   }
-} /* ← @media (max-width: 820px) をここで閉じる */
+}
 
 @media (min-width: 821px) {
   .page {
