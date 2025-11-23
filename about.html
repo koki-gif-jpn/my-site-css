@@ -2,40 +2,61 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>組織開発事務所｜私たちについて</title>
+    <title>SHIDARA office｜私たちについて</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- ▼ SEO最適化済み description -->
     <meta
       name="description"
-      content="組織開発事務所（仮）の大切にしている考え方や背景をご紹介します。体験学習や対話を通して、心理的安全性と関係の質を育て、チームや組織、個人の変容を支えるスタンスをお伝えします。"
+      content="SHIDARA office の大切にしている考え方や背景をご紹介します。体験学習や対話を通して、心理的安全性と関係の質を育て、チームや組織、個人の変容を支えるスタンスをお伝えします。"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body>
-    <div class="page">
+  <body class="page">
+    <div class="site-container">
       <header class="site-header">
         <div class="header-inner">
+          <!-- 左：ロゴ + タグライン -->
           <div class="site-brand">
-            <h1 class="site-title">組織開発事務所（仮）</h1>
-            <p class="site-tagline">
-              体験から学んでチーム、組織、個人の成長を促す。
-            </p>
+            <a href="index.html" class="site-logo">
+              <img
+                src="images/logo-header-main.png"
+                alt="SHIDARA office ロゴ"
+              />
+            </a>
+            <p class="site-tagline">組織・チームの成長促進</p>
           </div>
-          <div class="header-contact">
-            <p class="header-contact-label">お問い合わせ</p>
-            <p class="header-contact-mail">
-              <a href="mailto:info@example.com">info@example.com</a>
-            </p>
+
+          <!-- 右：お問い合わせ + ハンバーガー（スマホのみ表示） -->
+          <div class="header-right">
+            <div class="header-contact">
+              <p class="header-contact-label">お問い合わせ</p>
+              <p class="header-contact-mail">
+                <a href="mailto:info@example.com">info@example.com</a>
+              </p>
+            </div>
+
+            <!-- ▼ ハンバーガーボタン（スマホのみ表示） -->
+            <button
+              class="menu-toggle js-menu-toggle"
+              type="button"
+              aria-controls="global-nav"
+              aria-expanded="false"
+            >
+              <span class="menu-toggle-bars">
+                <span class="menu-toggle-bar"></span>
+                <span class="menu-toggle-bar"></span>
+                <span class="menu-toggle-bar"></span>
+              </span>
+              <span class="menu-toggle-label">メニュー</span>
+            </button>
           </div>
         </div>
 
-        <nav class="global-nav" aria-label="グローバルナビゲーション">
+        <!-- ▼ グローバルナビ -->
+        <nav class="global-nav" id="global-nav">
           <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li class="current"><a href="about.html">私たちについて</a></li>
+            <li class="current"><a href="index.html">ホーム</a></li>
+            <li><a href="about.html">私たちについて</a></li>
             <li><a href="programs.html">プログラム一覧</a></li>
             <li><a href="flow.html">実施までの流れ</a></li>
             <li><a href="faq.html">よくある質問</a></li>
@@ -45,7 +66,42 @@
         </nav>
       </header>
 
-      <!-- ▼ メインレイアウト（main + sidebar） -->
+      <!-- =========================
+            ヒーローエリア（トップ）
+        ========================== -->
+      <section class="hero hero-full">
+        <!-- 背景写真 -->
+        <div class="hero-bg" aria-hidden="true"></div>
+        <!-- オーバーレイ -->
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <!-- テキストコンテナ -->
+        <div class="hero-container">
+          <div class="hero-content">
+            <h2 class="hero-title">
+              「まず体験し、対話し、日常の変化につなげる」<br />
+              組織・チームの成長を促進するパートナー
+            </h2>
+
+            <p class="hero-text">
+              安心して話せる場での体験と対話を通して、<br />
+              企業・スポーツチーム・学校・個人の<br />
+              “関係の質”と“行動の質”のサイクルがまわるよう促します。
+            </p>
+
+            <div class="hero-buttons">
+              <a href="programs.html" class="btn btn-main">プログラムを見る</a>
+              <a href="contact.html" class="btn btn-outline">
+                まず相談してみる
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+            メイン＋サイド
+        ========================== -->
       <div class="layout-main">
         <main class="main-content">
           <!-- ▼ ページヘッダー -->
@@ -179,9 +235,11 @@
             </p>
           </section>
         </main>
-
-        <!-- ▼ サイドバー -->
+        <!-- =========================
+              サイドバー
+          ========================== -->
         <aside class="sidebar">
+          <!-- メニュー -->
           <section class="side-box">
             <h2 class="side-title">メニュー</h2>
             <ul class="side-menu">
@@ -197,6 +255,7 @@
             </ul>
           </section>
 
+          <!-- 実施までの流れ（ダイジェスト） -->
           <section class="side-box side-box-flow">
             <h2 class="side-title">実施までの流れ</h2>
             <ol class="side-list side-flow-list">
@@ -206,64 +265,78 @@
               <li>実施（当日）</li>
               <li>振り返り ＆ 次の一歩</li>
             </ol>
-            <p class="side-link"><a href="flow.html">詳しく見る</a></p>
+            <p class="side-link">
+              <a href="flow.html">詳しく見る</a>
+            </p>
           </section>
 
+          <!-- 大切にしている考え方（ダイジェスト） -->
           <section class="side-box side-box-theory">
             <h2 class="side-title">大切にしている考え方</h2>
             <ul class="side-list side-theory-list">
-              <li>体験からの学び</li>
-              <li>対話による気づき</li>
-              <li>安心して参加できる場づくり</li>
+              <li>体験から学ぶこと</li>
+              <li>対話から生まれる気づき</li>
+              <li>安心して話せる場づくり</li>
               <li>経験学習サイクル</li>
-              <li>成功循環モデル</li>
+              <li>グッドサイクル &amp; バッドサイクル</li>
             </ul>
-            <p class="side-link"><a href="theory.html">詳しく読む</a></p>
+            <p class="side-link">
+              <a href="theory.html">詳しく読む</a>
+            </p>
           </section>
 
+          <!-- ご相談のタイミング -->
           <section class="side-box side-box-situations">
             <h2 class="side-title">ご相談のタイミング</h2>
             <ul class="side-list side-situation-list">
               <li>チームの雰囲気を整えたい</li>
-              <li>対話の時間をつくりたい</li>
-              <li>新チームの立ち上がりをよくしたい</li>
-              <li>大会・イベント前に気持ちをそろえたい</li>
+              <li>対話の場をつくりたい</li>
+              <li>新チームの立ち上げを支援したい</li>
+              <li>大会前に気持ちをそろえたい</li>
             </ul>
           </section>
         </aside>
       </div>
+      <!-- /.layout-main -->
 
-      <!-- ▼ フッター -->
+      <!-- =========================
+            フッター
+        ========================== -->
       <footer class="site-footer">
-        <div class="footer-inner">
-          <div class="footer-info">
-            <div class="footer-name">組織開発事務所（仮）</div>
-            <p class="footer-copy">
-              体験から学んでチーム、組織、個人の成長を促す。
-            </p>
-            <p class="footer-contact">メール：info@example.com</p>
+        <div class="footer-container">
+          <!-- ブランド部（ロゴ・サイト名・タグライン） -->
+          <div class="footer-brand">
+            <img
+              src="images/logo-header-main.png"
+              alt="SHIDARA office ロゴ"
+              class="footer-logo"
+            />
           </div>
 
+          <!-- ナビ＋メール -->
           <div class="footer-nav">
             <ul>
               <li><a href="index.html">ホーム</a></li>
               <li><a href="about.html">私たちについて</a></li>
-              <li class="current">
-                <a href="programs.html">プログラム一覧</a>
-              </li>
+              <li><a href="programs.html">プログラム一覧</a></li>
               <li><a href="flow.html">実施までの流れ</a></li>
               <li><a href="faq.html">よくある質問</a></li>
-              <li><a href="contact.html">お問い合わせ</a></li>
               <li><a href="theory.html">大切にしている考え方</a></li>
+              <li><a href="contact.html">お問い合わせ</a></li>
             </ul>
+            <!-- ▼ メールアドレスをナビ列の右側に配置 -->
+            <p class="footer-email">
+              <a href="mailto:info@example.com">info@example.com</a>
+            </p>
           </div>
         </div>
         <div class="footer-bottom">
-          <small>&copy; 2025 組織開発事務所（仮）</small>
+          <small>&copy; 2025 SHIDARA office. All rights reserved.</small>
         </div>
       </footer>
-    </div>
+      <!-- /.page -->
 
-    <script src="script.js"></script>
+      <script src="script.js"></script>
+    </div>
   </body>
 </html>
