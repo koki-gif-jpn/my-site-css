@@ -1266,22 +1266,25 @@ img {
     padding: 0 20px;
   }
 
-  /* PCのメイン＋サイドバーのバランス調整（黄金比寄り） */
+  /* PCのメイン＋サイドバーのバランス調整（少しだけ余裕を持たせる） */
   .layout-main {
     display: flex;
     align-items: flex-start;
     gap: 24px; /* 少し距離を空けて呼吸感UP */
   }
 
+  /* サイドバーはだいたい 1/4 幅 */
   .sidebar {
-    flex: 0 0 23.6%;
-    max-width: 23.6%;
+    flex: 0 0 23%;
+    max-width: 23%;
   }
 
+  /* メインは残りを取る（＋少し余裕） */
   .main-content {
-    flex: 0 0 76.4%;
-    max-width: 76.4%;
+    flex: 1 1 auto; /* ← 固定％ではなく残りを全部使う */
+    max-width: 77%; /* 安全側に少し小さめ指定（なくしてもOK） */
   }
+
   .side-box {
     padding: 12px 12px 14px;
   }
@@ -1292,7 +1295,7 @@ img {
 
   .side-box .side-title {
     font-size: 1rem; /* やさしく小さめに */
-    font-weight: 600; /* 強すぎず弱すぎない */
+    font-weight: 500; /* 強さを少し落とす */
     line-height: 1.4;
     margin-bottom: 6px; /* 下の空間を控えめに */
   }
@@ -1300,15 +1303,17 @@ img {
   .side-box ul li {
     line-height: 1.5;
   }
+
   .side-menu li a {
     padding: 8px 10px;
     font-size: 0.95rem;
   }
+
   .sidebar .side-title {
-    font-size: 1rem; /* 小さめにしてやさしく */
-    font-weight: 500; /* 600→500で強さを少し落とす */
-    margin-bottom: 6px; /* 下の余白を控えめに */
-    line-height: 1.4; /* 高すぎず低すぎず、読みやすい */
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+    line-height: 1.4;
   }
 }
 .sidebar .side-box ul:not(.side-menu) li {
