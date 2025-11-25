@@ -86,3 +86,27 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+// ============================
+// ページ先頭に戻るボタン
+// ============================
+document.addEventListener("DOMContentLoaded", function () {
+  const pageTopBtn = document.querySelector(".page-top-btn");
+  if (!pageTopBtn) return;
+
+  const SHOW_POSITION = 300; // これ以上スクロールしたら表示
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > SHOW_POSITION) {
+      pageTopBtn.classList.add("is-visible");
+    } else {
+      pageTopBtn.classList.remove("is-visible");
+    }
+  });
+
+  pageTopBtn.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+});

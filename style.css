@@ -424,6 +424,44 @@ img {
 }
 
 /* --------------------------------
+   プログラム一覧ページ内メニュー
+----------------------------------- */
+.programs-nav {
+  margin: 0 20px 24px;
+}
+
+.programs-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.programs-nav li {
+  margin: 0;
+}
+
+.programs-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background-color: #f3f8fd;
+  border: 1px solid #d0e3f5;
+  color: #0b314a;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.programs-nav a:hover,
+.programs-nav a:focus {
+  background-color: #e0f2ff;
+  text-decoration: none;
+}
+/* --------------------------------
    カード・リスト等（index 4カード基準）
 ----------------------------------- */
 .card-grid {
@@ -598,6 +636,12 @@ img {
 /* サイドメニュー */
 .side-menu {
   list-style: none;
+}
+
+.sidebar .side-box ul:not(.side-menu) li {
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+  line-height: 1.55;
 }
 
 .side-menu li {
@@ -958,6 +1002,56 @@ img {
   font-size: 0.8rem;
   color: #667;
 }
+/* --------------------------------
+   ページ先頭に戻るボタン
+----------------------------------- */
+.page-top-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 95, 140, 0.25);
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #0f5f8c;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  z-index: 900;
+
+  /* ふわっと出てくる用 */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+
+/* スクロール後に表示される状態 */
+.page-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ホバー・フォーカス軽め */
+.page-top-btn:hover {
+  background-color: #f3f8ff;
+}
+
+.page-top-btn:focus-visible {
+  outline: 2px solid #0f5f8c;
+  outline-offset: 2px;
+}
+
+/* アイコン自体はそのまま中央に */
+.page-top-icon {
+  line-height: 1;
+  transform: translateY(-1px); /* ほんの少しだけ上に寄せてバランス調整 */
+}
 
 /* --------------------------------
    スマホレイアウト（～768px）
@@ -1257,6 +1351,26 @@ img {
     margin-top: 10px;
     padding-top: 6px; /* コピーライト周りの厚みを薄く */
   }
+  .page-top-btn {
+    right: 16px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+  }
+  .programs-nav {
+    margin: 0 12px 18px;
+  }
+
+  .programs-nav ul {
+    gap: 6px;
+  }
+
+  .programs-nav a {
+    padding: 7px 10px;
+    font-size: 0.85rem;
+  }
 }
 
 @media (min-width: 821px) {
@@ -1315,9 +1429,7 @@ img {
     margin-bottom: 6px;
     line-height: 1.4;
   }
-}
-.sidebar .side-box ul:not(.side-menu) li {
-  padding-left: 1.2em;
-  text-indent: -1.2em;
-  line-height: 1.55;
+  .page-top-btn {
+    right: max(16px, calc(50% - 600px + 16px));
+  }
 }
