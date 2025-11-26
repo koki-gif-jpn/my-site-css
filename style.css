@@ -385,7 +385,7 @@ img {
   color: #0f5f8c;
 }
 
-.page-subtitle {
+.page-lead {
   margin: 0 0 14px;
   font-size: 0.95rem;
   color: #444444;
@@ -893,12 +893,6 @@ img {
   color: #115a88;
 }
 
-.theory-title {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-  color: #0f5f8c;
-}
-
 .theory-summary {
   margin: 0 0 8px;
   font-size: 0.95rem;
@@ -1246,7 +1240,7 @@ img {
     line-height: 1.5;
   }
 
-  .page-subtitle {
+  .page-lead {
     font-size: 0.9rem;
   }
 
@@ -1295,10 +1289,6 @@ img {
 
   .hero-text {
     font-size: 0.95rem;
-  }
-
-  .theory-title {
-    font-size: 1.05rem;
   }
 
   /* フッターナビ：スマホでは1列 */
@@ -1432,4 +1422,8 @@ img {
   .page-top-btn {
     right: max(16px, calc(50% - 600px + 16px));
   }
+}
+
+[id] {
+  scroll-margin-top: 80px;
 }
