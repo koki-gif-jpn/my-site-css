@@ -374,11 +374,19 @@ img {
   font-size: 1.6rem;
   margin: 0 0 8px;
 }
+.page-header p {
+  margin-bottom: 8px;
+}
 
 .page-header .page-lead,
 .page-header .page-subtitle {
   margin: 0;
   line-height: 1.7;
+}
+.page-header hr {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  margin: 12px 0 16px;
 }
 
 .page-header-btn {
