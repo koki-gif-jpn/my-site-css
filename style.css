@@ -77,19 +77,14 @@ img {
   min-width: 380px;
 }
 
-/* サイドバー全体 */
+/* --------------------------------
+   ヘッダー（共通）
+----------------------------------- */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000; /* 最前面に固定 */
   background-color: #ffffff; /* 背景必須（透過だと重なる） */
-  border-bottom: none;
-  padding: 14px 0 10px;
-}
-/* --------------------------------
-   ヘッダー（共通）
------------------------------------ */
-.site-header {
   border-bottom: none;
   padding: 14px 0 10px;
 }
@@ -396,9 +391,16 @@ img {
 .section {
   margin-bottom: 40px;
 }
-.section[id] {
-  scroll-margin-top: 120px; /* PCでヘッダー＋余白ぶん。値は好みで微調整OK */
+
+/* アンカー(#company 等)に飛んだときの位置調整
+   stickyヘッダーに隠れないように、ダミー余白を上に挿入する */
+.section[id]::before {
+  content: "";
+  display: block;
+  height: 140px; /* PC時のヘッダー＋余白ぶん。必要に応じて微調整OK */
+  margin-top: -140px;
 }
+
 .section-title {
   margin: 0 0 12px;
   padding-bottom: 6px;
@@ -427,12 +429,13 @@ img {
   overflow-wrap: break-word;
 }
 
-/* index専用：セクションタイトルの特別感 */
+/* index専用：セクションタイトルの特別感（重複だけど挙動そのまま残す） */
 .index-page .section-title {
   border-bottom-width: 3px;
   padding-bottom: 8px;
   font-weight: 600;
 }
+
 /* -------------------------------
    プログラム一覧ページ 内メニュー
    （対象から選ぶナビゲーション）
@@ -497,6 +500,7 @@ img {
   outline: 2px solid var(--color-sub);
   outline-offset: 2px;
 }
+
 /* --------------------------------
    カード・リスト等（index 4カード基準）
 ----------------------------------- */
@@ -519,17 +523,6 @@ img {
   height: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
 }
-/* index専用：カードのフェードインアニメーション */
-.card {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 /* index専用：カードのフェードインアニメーション */
 .card {
@@ -542,6 +535,8 @@ img {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ↑ 上のアニメーション定義が2重になっていたので1セットに整理 */
 
 /* 見出しまわり */
 .card h3 {
@@ -1055,6 +1050,7 @@ img {
   font-size: 0.8rem;
   color: #667;
 }
+
 /* --------------------------------
    ページ先頭に戻るボタン
 ----------------------------------- */
@@ -1234,7 +1230,6 @@ img {
     color: #3a4f6a;
     margin-left: 2px; /* ← 微調整で中央寄りに */
   }
-  /* --- 以下は今のCSSと同じでOK（ナビ表示切替など） --- */
 
   .global-nav {
     display: none;
@@ -1268,8 +1263,6 @@ img {
     min-width: 100%;
     flex: 1 1 auto;
   }
-
-  /* （この下のカードやヒーローなどのスマホ用CSSはそのままでOK） */
 
   /* カードは1カラム表示 */
   .card-grid {
@@ -1410,22 +1403,11 @@ img {
     font-size: 1.3rem;
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
   }
-  .programs-nav {
-    margin: 0 12px 18px;
-  }
 
-  .programs-nav ul {
-    gap: 6px;
-  }
-
-  .programs-nav a {
-    padding: 7px 10px;
-    font-size: 0.85rem;
-  }
-
+  /* プログラム内ナビ（スマホ） */
   .program-nav-list {
     gap: 8px;
-    justify-content: flex-start; /* スマホは左寄せ or 自然な折り返し */
+    justify-content: flex-start; /* スマホは左寄せ */
   }
 
   .program-nav-list li {
@@ -1435,8 +1417,11 @@ img {
   .program-nav-list li a {
     width: 100%;
   }
-  .section[id] {
-    scroll-margin-top: 96px; /* スマホ用。ヘッダーが低いので少し小さめ */
+
+  /* アンカー位置調整：スマホ時はヘッダーが低いので少し小さめに */
+  .section[id]::before {
+    height: 110px;
+    margin-top: -110px;
   }
 }
 
