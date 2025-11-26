@@ -65,7 +65,7 @@ img {
 /* メイン＋サイドバー */
 .layout-main {
   display: flex;
-  flex-direction: row-reverse; /* PCでは左にサイドバー */
+  flex-direction: row-reverse;
   flex-wrap: nowrap;
   align-items: flex-start;
   gap: 24px;
@@ -83,8 +83,8 @@ img {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 1000; /* 最前面に固定 */
-  background-color: #ffffff; /* 背景必須（透過だと重なる） */
+  z-index: 1000;
+  background-color: #ffffff;
   border-bottom: none;
   padding: 14px 0 10px;
 }
@@ -118,7 +118,7 @@ img {
   display: block;
 }
 
-/* タグライン：ロゴの右に横並びで表示 */
+/* タグライン */
 .site-tagline {
   margin: 0;
   font-size: 0.9rem;
@@ -131,7 +131,7 @@ img {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: auto; /* 左の .site-brand と両端に分かれる */
+  margin-left: auto;
 }
 
 /* お問い合わせ */
@@ -163,9 +163,9 @@ img {
   text-decoration: underline;
 }
 
-/* ハンバーガーメニュー（PCでは非表示：共通スタイルのみ定義） */
+/* ハンバーガーメニュー（PCでは非表示） */
 .menu-toggle {
-  display: none; /* 基本は非表示。スマホでだけ表示する */
+  display: none;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -197,15 +197,13 @@ img {
   color: #0f5f8c;
 }
 
-/* ×状態（開いているとき） */
+/* ×状態 */
 .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
 }
-
 .menu-toggle.is-open .menu-toggle-bar:nth-child(2) {
   opacity: 0;
 }
-
 .menu-toggle.is-open .menu-toggle-bar:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
 }
@@ -251,7 +249,7 @@ img {
 }
 
 /* --------------------------------
-   ボタン共通（メインCTA用）
+   ボタン共通
 ----------------------------------- */
 .btn {
   display: inline-block;
@@ -283,7 +281,7 @@ img {
 }
 
 /* --------------------------------
-   ヒーロー（トップページ：フル幅）
+   ヒーロー（トップページ）
 ----------------------------------- */
 .hero-full {
   position: relative;
@@ -296,7 +294,7 @@ img {
   color: var(--color-white);
 }
 
-/* 背景画像（完成版） */
+/* 背景画像 */
 .hero-bg {
   position: absolute;
   top: 0;
@@ -309,7 +307,7 @@ img {
   z-index: 1;
 }
 
-/* オーバーレイ（完成版） */
+/* オーバーレイ */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -324,7 +322,7 @@ img {
   z-index: 2;
 }
 
-/* 内側コンテナ（左寄せ） */
+/* 内側コンテナ */
 .hero-container {
   position: relative;
   z-index: 3;
@@ -366,9 +364,9 @@ img {
    ページヘッダー（共通）
 ----------------------------------- */
 .page-header {
-  margin: 0 0 32px;
+  margin: 0 0 40px;
   padding: 24px 20px;
-  background: #f2f5f9; /* 淡いブルーグレー */
+  background: #f2f5f9;
   border-radius: 8px;
 }
 
@@ -377,10 +375,12 @@ img {
   margin: 0 0 8px;
 }
 
-.page-header .page-lead {
+.page-header .page-lead,
+.page-header .page-subtitle {
   margin: 0;
   line-height: 1.7;
 }
+
 .page-header-btn {
   margin-top: 10px;
 }
@@ -392,24 +392,13 @@ img {
   margin-bottom: 40px;
 }
 
-/* アンカー(#company 等)に飛んだときの位置調整
-   stickyヘッダーに隠れないように、ダミー余白を上に挿入する */
-.section[id]::before {
-  content: "";
-  display: block;
-  height: 140px; /* PC時のヘッダー＋余白ぶん。必要に応じて微調整OK */
-  margin-top: -140px;
-}
-
 .section-title {
   margin: 0 0 12px;
   padding-bottom: 6px;
-  border-bottom: 2px solid var(--color-sub);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.12);
   font-size: 1.25rem;
-  border-color: rgba(0, 0, 0, 0.12);
 }
 
-/* index専用：セクションタイトルの特別感 */
 .index-page .section-title {
   border-bottom-width: 3px;
   padding-bottom: 8px;
@@ -429,25 +418,21 @@ img {
   overflow-wrap: break-word;
 }
 
-/* index専用：セクションタイトルの特別感（重複だけど挙動そのまま残す） */
-.index-page .section-title {
-  border-bottom-width: 3px;
-  padding-bottom: 8px;
-  font-weight: 600;
+/* アンカー位置調整：共通（programs など） */
+.anchor-adjust {
+  height: 140px;
+  margin-top: -140px;
 }
 
 /* -------------------------------
    プログラム一覧ページ 内メニュー
-   （対象から選ぶナビゲーション）
 -------------------------------- */
-
-/* 全体ブロック */
 .section-program-navigation {
   margin-top: 24px;
   padding: 16px 20px 20px;
   background: #f2f5f9;
   border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.02); /* ほんのり枠線で締める */
+  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 .section-program-navigation .section-title {
@@ -462,7 +447,7 @@ img {
 .program-nav-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* PCでは中央寄せ */
+  justify-content: center;
   gap: 10px;
   list-style: none;
   margin: 0;
@@ -477,7 +462,7 @@ img {
 .program-nav-list li a {
   display: inline-block;
   padding: 10px 16px;
-  border-radius: 999px; /* pillタイプ */
+  border-radius: 999px;
   border: 1px solid var(--color-sub);
   background: #ffffff;
   color: var(--color-sub);
@@ -492,7 +477,7 @@ img {
 .program-nav-list li a:hover {
   background: var(--color-sub);
   color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06); /* 影を少しだけ控えめに */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
   transform: translateY(-0.5px);
 }
 
@@ -502,7 +487,7 @@ img {
 }
 
 /* --------------------------------
-   カード・リスト等（index 4カード基準）
+   カード・リスト等
 ----------------------------------- */
 .card-grid {
   display: grid;
@@ -511,7 +496,7 @@ img {
   align-items: stretch;
 }
 
-/* 1枚のカード全体 */
+/* 1枚のカード */
 .card {
   border-radius: 12px;
   border: 1px solid #d7e4f2;
@@ -522,10 +507,8 @@ img {
   flex-direction: column;
   height: 100%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-}
 
-/* index専用：カードのフェードインアニメーション */
-.card {
+  /* フェードインアニメーション */
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -536,9 +519,7 @@ img {
   transform: translateY(0);
 }
 
-/* ↑ 上のアニメーション定義が2重になっていたので1セットに整理 */
-
-/* 見出しまわり */
+/* カード見出し */
 .card h3 {
   margin-top: 0;
   margin-bottom: 10px;
@@ -562,7 +543,7 @@ img {
   line-height: 1.8;
 }
 
-/* リンクを下側に寄せる（高さをそろえる） */
+/* リンクを下側に寄せる */
 .card-link {
   margin-top: auto;
   padding-top: 10px;
@@ -633,7 +614,7 @@ img {
 }
 
 /* --------------------------------
-   サイドバー中身
+   サイドバー
 ----------------------------------- */
 .side-box {
   margin-bottom: 20px;
@@ -664,14 +645,14 @@ img {
   font-size: 0.9rem;
 }
 
-/* サイドバー内の画像（将来使う場合） */
+/* サイドバー内画像 */
 .side-box img {
   margin-bottom: 8px;
   border: 1px solid #cccccc;
   border-radius: 6px;
 }
 
-/* side-list 箇条書き */
+/* 箇条書き */
 .side-list {
   list-style: disc;
   padding-left: 18px;
@@ -730,7 +711,7 @@ img {
   text-decoration: none;
 }
 
-/* 「お問い合わせ」用の contact-item がある場合 */
+/* 「お問い合わせ」用 */
 .side-menu li.contact-item {
   margin-top: 8px;
 }
@@ -750,7 +731,7 @@ img {
   text-decoration: none;
 }
 
-/* 小さなテキストリンク（flow/theoryの「詳しく〜」） */
+/* 小さなテキストリンク（flow/theory） */
 .side-link {
   margin-top: 8px;
   text-align: right;
@@ -777,7 +758,7 @@ img {
   background-color: #e0f2ff;
 }
 
-/* こんなときにご相談ください：ちょっと余裕をもたせる */
+/* ご相談例リスト */
 .side-box-situations .side-list {
   font-size: 0.9rem;
   line-height: 1.8;
@@ -885,7 +866,7 @@ img {
 
 .faq-answer {
   padding: 10px 14px 14px;
-  display: none; /* JSで開閉 */
+  display: none;
   font-size: 0.95rem;
   line-height: 1.6;
   color: #333333;
@@ -907,12 +888,12 @@ img {
   font-weight: bold;
 }
 
-/* 開いているとき */
+/* 開いたとき */
 .faq-question.is-open::after {
   content: "−";
 }
 
-/* FAQ 下部CTA（使うなら） */
+/* FAQ 下部CTA（任意） */
 .flow-cta {
   margin-top: 24px;
   text-align: center;
@@ -931,7 +912,7 @@ img {
   margin-bottom: 8px;
 }
 
-/* 各理論ブロックのカード風デザイン */
+/* 各理論ブロック */
 .theory-block {
   margin-bottom: 24px;
   padding: 14px 16px;
@@ -966,44 +947,42 @@ img {
   background-color: #f7fbff;
 }
 
-/* ============================
+/* --------------------------------
    フッター
-   ============================ */
-
+----------------------------------- */
 .site-footer {
-  background: #f5f7fb; /* ほんの少しだけ明るくして“薄く” */
+  background: #f5f7fb;
   color: #223;
-  padding: 20px 20px 10px; /* 上下の厚みをさらに少しだけ薄く */
-  border-top: 1px solid #d8e2ee; /* 枠線も軽めに */
+  padding: 20px 20px 10px;
+  border-top: 1px solid #d8e2ee;
 }
 
-/* 全体レイアウト */
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px; /* 間の余白も少し詰める */
+  gap: 18px;
 }
 
-/* ---------- ブランド部分 ---------- */
+/* ブランド部分 */
 .footer-brand {
   text-align: center;
 }
 .footer-logo {
   max-width: 320px;
   height: auto;
-  opacity: 0.95; /* ほんのり落ち着かせるなら */
+  opacity: 0.95;
 }
 
-/* ---------- ナビ＋メール ---------- */
+/* ナビ＋メール */
 .footer-nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 12px 28px; /* ナビとメールの間の余白 */
+  gap: 12px 28px;
   color: #3c4c5c;
   opacity: 0.85;
 }
@@ -1030,7 +1009,7 @@ img {
   opacity: 1;
 }
 
-/* メールアドレス（PCではナビ列の右側） */
+/* メールアドレス */
 .footer-email {
   margin: 0;
   font-size: 0.9rem;
@@ -1038,7 +1017,7 @@ img {
   opacity: 0.75;
 }
 
-/* ---------- 下部コピーライト ---------- */
+/* コピーライト */
 .footer-bottom {
   text-align: center;
   margin-top: 8px;
@@ -1071,22 +1050,19 @@ img {
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   z-index: 900;
-
-  /* ふわっと出てくる用 */
   opacity: 0;
   visibility: hidden;
   transform: translateY(8px);
   transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
 }
 
-/* スクロール後に表示される状態 */
+/* スクロール後に表示 */
 .page-top-btn.is-visible {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* ホバー・フォーカス軽め */
 .page-top-btn:hover {
   background-color: #f3f8ff;
 }
@@ -1096,10 +1072,9 @@ img {
   outline-offset: 2px;
 }
 
-/* アイコン自体はそのまま中央に */
 .page-top-icon {
   line-height: 1;
-  transform: translateY(-1px); /* ほんの少しだけ上に寄せてバランス調整 */
+  transform: translateY(-1px);
 }
 
 /* --------------------------------
@@ -1116,18 +1091,18 @@ img {
     border-radius: 0;
   }
 
-  /* ヘッダー：コンパクトな2×2レイアウト */
+  /* ヘッダー：コンパクトレイアウト */
   .header-inner {
     padding: 6px 12px 4px;
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) auto; /* 左広め・右は問い合わせ＋メニュー */
+    grid-template-columns: minmax(0, 1.4fr) auto;
     grid-template-rows: auto auto;
     column-gap: 8px;
     row-gap: 4px;
     align-items: center;
   }
 
-  /* 左側：ロゴ＋タグライン（縦並び） */
+  /* ロゴ＋タグライン（縦並び） */
   .site-brand {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
@@ -1138,7 +1113,7 @@ img {
   }
 
   .site-logo img {
-    max-height: 40px; /* ちょっとだけ小さくして高さを圧縮 */
+    max-height: 40px;
   }
 
   .site-tagline {
@@ -1154,7 +1129,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 6px; /* ← お問い合わせ と ボタンの間を少し広げる */
+    gap: 6px;
   }
 
   .header-contact {
@@ -1173,7 +1148,7 @@ img {
     margin: 0;
   }
 
-  /* ▼ ハンバーガー：右下に配置、少し小さめ＆そろった見た目に */
+  /* ハンバーガー */
   .menu-toggle {
     display: inline-flex;
     align-items: center;
@@ -1186,6 +1161,7 @@ img {
     background: #ffffff;
     min-height: 40px;
   }
+
   .menu-toggle-bars {
     position: relative;
     width: 18px;
@@ -1193,6 +1169,7 @@ img {
     display: flex;
     justify-content: center;
   }
+
   .menu-toggle-bar {
     position: absolute;
     top: 50%;
@@ -1204,6 +1181,7 @@ img {
     transform: translate(-50%, -50%);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
+
   .menu-toggle:not(.is-open) .menu-toggle-bar:nth-child(1) {
     transform: translate(-50%, -50%) translateY(-4px);
   }
@@ -1214,7 +1192,6 @@ img {
     transform: translate(-50%, -50%) translateY(4px);
   }
 
-  /* ✕ に変わったとき */
   .menu-toggle.is-open .menu-toggle-bar:nth-child(1) {
     transform: translate(-50%, -50%) rotate(45deg);
   }
@@ -1226,9 +1203,9 @@ img {
   }
 
   .menu-toggle-label {
-    font-size: 0.82rem; /* ← 少しだけ読みやすく */
+    font-size: 0.82rem;
     color: #3a4f6a;
-    margin-left: 2px; /* ← 微調整で中央寄りに */
+    margin-left: 2px;
   }
 
   .global-nav {
@@ -1252,7 +1229,7 @@ img {
     height: 2.5px;
   }
 
-  /* main → sidebar の順で縦並び */
+  /* main → sidebar 縦並び */
   .layout-main {
     flex-direction: column;
     padding: 16px 12px 20px;
@@ -1264,7 +1241,7 @@ img {
     flex: 1 1 auto;
   }
 
-  /* カードは1カラム表示 */
+  /* カードは1カラム */
   .card-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1283,7 +1260,7 @@ img {
   }
 
   .page-header {
-    margin: 0 12px 20px;
+    margin: 0 12px 24px;
     padding: 14px 12px 18px;
   }
 
@@ -1292,7 +1269,8 @@ img {
     line-height: 1.5;
   }
 
-  .page-lead {
+  .page-lead,
+  .page-subtitle {
     font-size: 0.9rem;
   }
 
@@ -1306,7 +1284,7 @@ img {
     padding: 10px 12px;
   }
 
-  /* ヒーロー：スマホ時の調整 */
+  /* ヒーロー：スマホ調整 */
   .hero-bg {
     background-position: center center;
   }
@@ -1337,6 +1315,7 @@ img {
     backdrop-filter: blur(7px);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
   }
+
   .hero-title {
     font-size: 1.4rem;
   }
@@ -1345,12 +1324,12 @@ img {
     font-size: 0.95rem;
   }
 
-  /* フッターナビ：スマホでは1列 */
+  /* フッターナビ：スマホでは1列寄せ */
   .footer-nav ul {
     grid-template-columns: 1fr;
   }
 
-  /* サイドバーの順番調整（ご相談のタイミングを上に） */
+  /* サイドバーの順番調整 */
   .sidebar {
     display: flex;
     flex-direction: column;
@@ -1361,13 +1340,13 @@ img {
     order: -1;
   }
 
-  /* ===== フッター（スマホ） ===== */
+  /* フッター（スマホ） */
   .site-footer {
-    padding: 16px 16px 10px; /* 全体を少しだけコンパクトに */
+    padding: 16px 16px 10px;
   }
 
   .footer-container {
-    gap: 14px; /* ロゴとナビの間を少し詰める */
+    gap: 14px;
   }
 
   .footer-name {
@@ -1376,25 +1355,28 @@ img {
 
   .footer-nav ul {
     justify-content: center;
-    gap: 8px 18px; /* 行間ちょい広め、横は少しだけ */
+    gap: 8px 18px;
   }
 
   .footer-nav {
     flex-direction: column;
     align-items: center;
-    gap: 6px; /* ナビとメールの距離 */
+    gap: 6px;
   }
+
   .footer-email {
     margin-top: 2px;
     font-size: 0.85rem;
-    line-height: 1.6; /* 行間をゆるめて読みやすく */
+    line-height: 1.6;
     text-align: center;
     opacity: 0.75;
   }
+
   .footer-bottom {
     margin-top: 10px;
-    padding-top: 6px; /* コピーライト周りの厚みを薄く */
+    padding-top: 6px;
   }
+
   .page-top-btn {
     right: 16px;
     bottom: 20px;
@@ -1407,7 +1389,7 @@ img {
   /* プログラム内ナビ（スマホ） */
   .program-nav-list {
     gap: 8px;
-    justify-content: flex-start; /* スマホは左寄せ */
+    justify-content: flex-start;
   }
 
   .program-nav-list li {
@@ -1418,13 +1400,16 @@ img {
     width: 100%;
   }
 
-  /* アンカー位置調整：スマホ時はヘッダーが低いので少し小さめに */
-  .section[id]::before {
+  /* アンカー位置調整（スマホ用） */
+  .anchor-adjust {
     height: 110px;
     margin-top: -110px;
   }
 }
 
+/* --------------------------------
+   PCレイアウト（821px〜）
+----------------------------------- */
 @media (min-width: 821px) {
   .page {
     max-width: 1200px;
@@ -1432,23 +1417,20 @@ img {
     padding: 0 20px;
   }
 
-  /* PCのメイン＋サイドバーのバランス調整（少しだけ余裕を持たせる） */
   .layout-main {
     display: flex;
     align-items: flex-start;
-    gap: 24px; /* 少し距離を空けて呼吸感UP */
+    gap: 24px;
   }
 
-  /* サイドバーはだいたい 1/4 幅 */
   .sidebar {
     flex: 0 0 23%;
     max-width: 23%;
   }
 
-  /* メインは残りを取る（＋少し余裕） */
   .main-content {
-    flex: 1 1 auto; /* ← 固定％ではなく残りを全部使う */
-    max-width: 77%; /* 安全側に少し小さめ指定（なくしてもOK） */
+    flex: 1 1 auto;
+    max-width: 77%;
   }
 
   .side-box {
@@ -1456,14 +1438,15 @@ img {
   }
 
   .sidebar .side-box {
-    margin-bottom: 28px; /* 少し広げて呼吸させる */
+    margin-bottom: 28px;
   }
 
-  .side-box .side-title {
-    font-size: 1rem; /* やさしく小さめに */
-    font-weight: 500; /* 強さを少し落とす */
+  .side-box .side-title,
+  .sidebar .side-title {
+    font-size: 1rem;
+    font-weight: 500;
     line-height: 1.4;
-    margin-bottom: 6px; /* 下の空間を控えめに */
+    margin-bottom: 6px;
   }
 
   .side-box ul li {
@@ -1475,12 +1458,6 @@ img {
     font-size: 0.95rem;
   }
 
-  .sidebar .side-title {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 6px;
-    line-height: 1.4;
-  }
   .page-top-btn {
     right: max(16px, calc(50% - 600px + 16px));
   }

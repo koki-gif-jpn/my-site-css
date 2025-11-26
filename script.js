@@ -138,3 +138,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach((c) => observer.observe(c));
 });
+// ページ読み込み後に、ハッシュ付きで来たときの位置をもう一度合わせる
+window.addEventListener("load", () => {
+  // ★ スマホ（〜820px）は何もしない → CSSのanchor-adjustだけを使う
+  if (!window.matchMedia("(min-width: 821px)").matches) {
+    return;
+  }
+
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  const target = document.querySelector(hash);
+  if (!target) return;
+
+  const header = document.querySelector(".site-header");
+  const headerHeight = header ? header.offsetHeight : 0;
+
+  // ★ PC用に調整して「-160」がちょうど良かったのでそのまま採用
+  const extraOffset = -160;
+
+  const rect = target.getBoundingClientRect();
+  const scrollY = window.scrollY + rect.top - headerHeight - extraOffset;
+
+  window.scrollTo({
+    top: scrollY,
+    behavior: "auto",
+  });
+});
