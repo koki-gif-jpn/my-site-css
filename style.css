@@ -54,7 +54,7 @@ img {
    全体レイアウト
 ----------------------------------- */
 .page {
-  max-width: 1200px;
+  max-width: 1080px;
   margin: 0 auto;
   background-color: var(--color-white);
   min-height: 100vh;
@@ -75,6 +75,7 @@ img {
 .main-content {
   flex: 1 1 auto;
   min-width: 380px;
+  max-width: 760px;
 }
 
 /* --------------------------------
@@ -326,10 +327,8 @@ img {
 .hero-container {
   position: relative;
   z-index: 3;
-  padding: 40px 30px;
-  max-width: 1200px;
+  padding: 28px 16px;
   margin: 0;
-  padding-left: 40px;
 }
 
 /* テキストボックス */
@@ -430,14 +429,6 @@ img {
 /* -------------------------------
    プログラム一覧ページ 内メニュー
 -------------------------------- */
-.section-program-navigation {
-  margin-top: 24px;
-  padding: 16px 20px 20px;
-  background: #f2f5f9;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.02);
-}
-
 .section-program-navigation .section-title {
   margin-bottom: 6px;
 }
@@ -847,7 +838,7 @@ img {
 }
 
 .faq-item {
-  border: 1px solid #ddebf5;
+  border: 1px #ddebf5;
   border-radius: 6px;
   background: #f9fcff;
 }
@@ -896,26 +887,9 @@ img {
   content: "−";
 }
 
-/* FAQ 下部CTA（任意） */
-.flow-cta {
-  margin-top: 24px;
-  text-align: center;
-}
-
 /* --------------------------------
    大事にしている理論（theory）
 ----------------------------------- */
-.theory-list {
-  margin: 0 0 16px;
-  padding-left: 20px;
-  font-size: 0.95rem;
-}
-
-.theory-list li {
-  margin-bottom: 8px;
-}
-
-/* 各理論ブロック */
 .theory-block {
   margin-bottom: 24px;
   padding: 14px 16px;
@@ -935,19 +909,6 @@ img {
   margin: 0 0 8px;
   font-size: 0.95rem;
   line-height: 1.7;
-}
-
-/* 補足・注釈 */
-.theory-note {
-  margin: 4px 0 0;
-  padding: 8px 10px;
-  font-size: 0.85rem;
-  color: var(--color-muted);
-  font-style: italic;
-  border-radius: 6px;
-  border: 1px dashed #c0d4eb;
-  border-left: 3px dashed #c8dff3;
-  background-color: #f7fbff;
 }
 
 /* --------------------------------
@@ -1234,7 +1195,7 @@ img {
   /* main → sidebar 縦並び */
   .layout-main {
     flex-direction: column;
-    padding: 16px 12px 20px;
+    padding: 16px 16px 20px;
   }
 
   .main-content,
@@ -1262,8 +1223,8 @@ img {
   }
 
   .page-header {
-    margin: 0 12px 24px;
-    padding: 14px 12px 18px;
+    margin: 0 16px 24px;
+    padding: 14px 16px 18px;
   }
 
   .page-title {
@@ -1351,10 +1312,6 @@ img {
     gap: 14px;
   }
 
-  .footer-name {
-    font-size: 1rem;
-  }
-
   .footer-nav ul {
     justify-content: center;
     gap: 8px 18px;
@@ -1417,6 +1374,7 @@ img {
     display: flex;
     align-items: flex-start;
     gap: 24px;
+    padding: 20px 0; /* ←ここを20px → 0に修正 */
   }
 
   .sidebar {
